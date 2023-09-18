@@ -4,6 +4,7 @@ const bodyBgColor = document.querySelector('body');
 
 startBtn.addEventListener('click', onStart);
 stopBtn.disabled = true;
+const er = [];
 
 function onStart() {
   const id = setInterval(() => {
