@@ -23,7 +23,6 @@ const options = {
 
   onClose(selectedDates) {
     const dateSelectUser = selectedDates[0].getTime();
-    console.log(dateSelectUser);
     localStorage.setItem('dateSelectUser', JSON.stringify(dateSelectUser));
     const dateCurrent = new Date().getTime();
     const result = dateSelectUser - dateCurrent;
