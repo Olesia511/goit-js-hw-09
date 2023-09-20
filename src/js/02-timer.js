@@ -7,7 +7,8 @@ const timerHours = document.querySelector('span[data-hours]');
 const timerMinutes = document.querySelector('span[data-minutes]');
 const timerSeconds = document.querySelector('span[data-seconds]');
 const startBtn = document.querySelector('button[data-start]');
-localStorage.setItem('idTimer', JSON.stringify('idTimer'));
+localStorage.setItem('idTimer', '');
+localStorage.setItem('dateSelectUser', '');
 
 startBtn.disabled = true;
 
@@ -22,11 +23,11 @@ const options = {
 
   onClose(selectedDates) {
     dateSelectUser = selectedDates[0].getTime();
+    localStorage.setItem('dateSelectUser', JSON.stringify(dateSelectUser));
     const dateCurrent = new Date().getTime();
     const result = dateSelectUser - dateCurrent;
 
     if (result > 0) {
-      localStorage.setItem('dateSelectUser', JSON.stringify(dateSelectUser));
       startBtn.disabled = false;
       timerDays.closest('div').classList.remove('activ');
       timerHours.closest('div').classList.remove('activ');
